@@ -1,0 +1,35 @@
+setting:
+
+    root_path: result
+
+    save_path: reconstructions_MRI
+
+    mode: 'tst'
+
+    method:  bcpnp
+    dataset: pmri_fastmri
+
+method:
+
+    bcpnp:
+
+        x_module: unetres
+        theta_module: unetres
+
+        warmup:
+            x_sigma: 15
+            theta_sigma: 25
+
+            x_ckpt: g_denoise
+            theta_ckpt: g_denoise
+
+module:
+
+    gs_denoiser:
+
+        DRUNET_nc_x: 64 
+        DRUNET_nc_cal: 16
+
+    unetres:
+
+        pmri_num_coils: -1
